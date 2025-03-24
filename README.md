@@ -1,15 +1,13 @@
-"# Mobile-Programing" 
-# UTH Smart Tasks
+# Mobile Programming
+## UTH Smart Tasks
 
-#dùng thư viện:
-    - dio
-    - retrofit
-    - fonts:
-    - family: Poppins
-      fonts:
-        - asset: assets/fonts/Poppins-Regular.ttf
-        - asset: assets/fonts/Poppins-Bold.ttf
-          weight: 700
-        - asset: assets/fonts/Poppins-Italic.ttf
-          style: italic
-    - json_annotation
+### Sử dụng thư viện:
+- **[Dio](https://pub.dev/packages/dio)** - Thư viện HTTP client cho Dart/Flutter.
+- **[Retrofit](https://pub.dev/packages/retrofit)** - REST API client generator dựa trên Dio.
+- **[Json Annotation](https://pub.dev/packages/json_annotation)** - Hỗ trợ serialize/deserialize JSON.
+
+### Font chữ sử dụng:
+#### Poppins
+- **Poppins-Regular**: `assets/fonts/Poppins-Regular.ttf`
+- **Poppins-Bold** (Weight: 700): `assets/fonts/Poppins-Bold.ttf`
+- **Poppins-Italic** (Style: italic): `assets/fonts/Poppins-Italic.ttf`
