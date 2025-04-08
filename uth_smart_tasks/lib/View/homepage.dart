@@ -1,8 +1,6 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-import 'Models/task_model.dart';
-import 'api/task_service.dart';
+import '../Models/task_model.dart';
+import '../Provider/task_service.dart';
 import 'taskDetailScreen.dart';
 
 class TaskScreen extends StatefulWidget {
@@ -12,6 +10,7 @@ class TaskScreen extends StatefulWidget {
 
 class _TaskScreenState extends State<TaskScreen> {
   final TaskService _taskService = TaskService();
+
   late Future<List<Task>> _tasks;
   int _selectedIndex = 0;
   List<bool> isCheckedList = [];
@@ -19,7 +18,7 @@ class _TaskScreenState extends State<TaskScreen> {
   @override
   void initState() {
     super.initState();
-    _tasks = _taskService.fetchTasks();
+    _tasks = _taskService.fetchTasks(); // Lấy danh sách task từ API
   }
 
   @override
@@ -54,11 +53,12 @@ class _TaskScreenState extends State<TaskScreen> {
                         (index) => false,
                       );
                     }
+                    final tasksToShow = snapshot.data!.take(3).toList();
                     return ListView.builder(
                       padding: EdgeInsets.all(15),
-                      itemCount: snapshot.data!.length,
+                      itemCount: tasksToShow.length,
                       itemBuilder: (context, index) {
-                        return _buildTaskCard(snapshot.data![index], index);
+                        return _buildTaskCard(tasksToShow[index], index);
                       },
                     );
                   }
@@ -151,7 +151,7 @@ class _TaskScreenState extends State<TaskScreen> {
       },
     );
   }
-
+  
   Widget _buildEmptyView() {
     return Center(
       child: Column(

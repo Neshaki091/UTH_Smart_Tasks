@@ -15,11 +15,11 @@ class Task {
 
   factory Task.fromJson(Map<String, dynamic> json) {
     return Task(
-      id: json['id'] ?? 0,
-      title: json['title'] ?? "No Title",
-      description: json['description'] ?? "No Description",
-      status: json['status'] ?? "Unknown",
-      time: json['dueDate'] ?? "No Time",
+      id: json['id'],
+      title: json['title'],
+      description: json['description'],
+      status: json['status'],
+      time: json['dueDate'],
     );
   }
 }

@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:uth_smart_tasks/View/SignIn.dart'; // Ensure this file defines a SignIn widget or class
 import 'dart:async';
-import 'page/homepage.dart';
+import 'package:firebase_core/firebase_core.dart'; // Import Firebase core package
+import 'package:provider/provider.dart'; // Import Provider package
+import 'Models/auth_services.dart'; // Import AuthServices (ensure this file exists)
 
-void main() {
-  runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(
+    MultiProvider(
+      providers: [ChangeNotifierProvider(create: (context) => AuthServices())],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -377,7 +387,9 @@ class Page2 extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => TaskScreen()),
+                          MaterialPageRoute(
+                            builder: (context) => SignIn(),
+                          ), // Ensure SignIn is a valid widget or class
                         );
                       },
                       style: ElevatedButton.styleFrom(

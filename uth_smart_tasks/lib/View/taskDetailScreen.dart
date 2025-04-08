@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'Models/task_model.dart';
+import '../Models/task_model.dart';
 
 class TaskDetailScreen extends StatelessWidget {
   final Task task;
 
-  TaskDetailScreen({required this.task});
+  const TaskDetailScreen({super.key, required this.task});
 
   @override
   Widget build(BuildContext context) {
